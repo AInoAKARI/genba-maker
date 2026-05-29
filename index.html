@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>現場メーカー☆ | 愛野あかり♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@400;500;700&family=Yusei+Magic&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ff9ec4; --pink-deep:#ff6fa5; --lav:#c9b6ff; --mint:#a8e6cf;
+    --lemon:#fff3a8; --sky:#bce3ff; --cream:#fffaf3; --ink:#6b4a5c;
+    --ink-soft:#9d7f8e; --card:#ffffff;
+    --shadow:0 8px 0 rgba(255,111,165,.18), 0 18px 40px rgba(201,182,255,.35);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Zen Maru Gothic',sans-serif;color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 8%, var(--lemon) 0%, transparent 32%),
+      radial-gradient(circle at 88% 12%, var(--sky) 0%, transparent 30%),
+      radial-gradient(circle at 75% 88%, var(--mint) 0%, transparent 34%),
+      radial-gradient(circle at 20% 92%, var(--lav) 0%, transparent 32%),
+      linear-gradient(160deg,#fff0f7 0%,#f3f0ff 50%,#eafaf4 100%);
+    background-attachment:fixed;min-height:100vh;padding:16px 14px 60px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:480px;margin:0 auto;}
+  .crown{text-align:center;font-size:32px;margin-bottom:0;animation:bob 2.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg);}50%{transform:translateY(-7px) rotate(4deg);}}
+  h1{font-family:'Mochiy Pop One',sans-serif;text-align:center;font-size:25px;line-height:1.3;margin:0 0 2px;color:var(--pink-deep);text-shadow:2px 2px 0 #fff,4px 4px 0 rgba(201,182,255,.5);}
+  .sub{text-align:center;font-size:12px;color:var(--ink-soft);margin-bottom:8px;font-family:'Yusei Magic',sans-serif;letter-spacing:.5px;}
+  .logbar{
+    display:flex;align-items:center;justify-content:center;gap:8px;margin:0 auto 16px;
+    background:rgba(255,255,255,.7);border:2.5px solid #fff;border-radius:18px;
+    padding:8px 14px;width:fit-content;box-shadow:0 4px 14px rgba(201,182,255,.3);
+  }
+  .logbar .lbl{font-family:'Yusei Magic';font-size:12px;color:var(--ink-soft);}
+  .logbar .num{font-family:'Mochiy Pop One';font-size:20px;color:var(--pink-deep);}
+  .logbar button{border:none;background:var(--lav);color:#fff;border-radius:10px;width:26px;height:26px;font-size:15px;cursor:pointer;font-family:'Mochiy Pop One';box-shadow:0 3px 0 #a888ff;}
+  .logbar button:active{transform:translateY(2px);box-shadow:0 1px 0 #a888ff;}
+  .card{background:var(--card);border-radius:26px;padding:20px 18px;box-shadow:var(--shadow);border:3px solid #fff;margin-bottom:18px;position:relative;}
+  .card::before{content:"";position:absolute;inset:6px;border-radius:20px;border:2px dashed rgba(255,158,196,.4);pointer-events:none;}
+  label{display:block;font-family:'Mochiy Pop One',sans-serif;font-size:13px;color:var(--pink-deep);margin:14px 4px 6px;}
+  label:first-of-type{margin-top:4px;}
+  .hint{font-size:11px;color:var(--ink-soft);font-weight:400;font-family:'Zen Maru Gothic';}
+  input,textarea{width:100%;border:2.5px solid #ffd9e8;border-radius:16px;padding:12px 14px;font-size:16px;font-family:'Zen Maru Gothic',sans-serif;color:var(--ink);background:#fffdfe;transition:.2s;resize:none;}
+  input:focus,textarea:focus{outline:none;border-color:var(--pink-deep);box-shadow:0 0 0 4px rgba(255,158,196,.25);}
+  textarea{min-height:82px;line-height:1.6;}
+  .toggle-row{display:flex;gap:8px;margin-top:4px;}
+  .toggle-row .tg{flex:1;text-align:center;padding:11px 6px;border-radius:15px;cursor:pointer;border:2.5px solid #e6dcff;background:#faf7ff;font-size:13px;font-weight:700;color:var(--ink-soft);transition:.15s;font-family:'Zen Maru Gothic';}
+  .toggle-row .tg.on{background:var(--lav);border-color:#a888ff;color:#fff;box-shadow:0 4px 0 #a888ff;transform:translateY(-1px);}
+  .modes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
+  .mode{text-align:center;padding:13px 6px;border-radius:16px;cursor:pointer;border:2.5px solid #ffe3b3;background:#fffdf5;font-size:12.5px;font-weight:700;color:var(--ink-soft);transition:.15s;line-height:1.35;font-family:'Zen Maru Gothic';}
+  .mode .emo{display:block;font-size:20px;margin-bottom:3px;}
+  .mode.on{background:var(--lemon);border-color:#ffcf4d;color:var(--ink);box-shadow:0 4px 0 #ffcf4d;transform:translateY(-1px);}
+  .chk{display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px 12px;background:rgba(188,227,255,.25);border-radius:14px;cursor:pointer;}
+  .chk input{width:auto;}
+  .chk span{font-size:12.5px;color:#4a6b85;}
+  .gen{width:100%;margin-top:20px;padding:17px;border:none;border-radius:20px;font-family:'Mochiy Pop One',sans-serif;font-size:17px;color:#fff;cursor:pointer;background:linear-gradient(135deg,var(--pink) 0%,var(--pink-deep) 60%,var(--lav) 100%);box-shadow:0 6px 0 #e0539a,0 12px 24px rgba(255,111,165,.4);transition:.12s;letter-spacing:1px;}
+  .gen:active{transform:translateY(4px);box-shadow:0 2px 0 #e0539a;}
+  .out-card{display:none;animation:pop .35s cubic-bezier(.3,1.4,.5,1);}
+  .out-card.show{display:block;}
+  @keyframes pop{0%{transform:scale(.85);opacity:0;}100%{transform:scale(1);opacity:1;}}
+  .out-head{display:flex;align-items:center;gap:7px;justify-content:center;margin-bottom:12px;}
+  .out-head .ttl{font-family:'Mochiy Pop One';font-size:16px;color:var(--pink-deep);}
+  .post{background:linear-gradient(135deg,#fffdfe,#fff5fa);border:2.5px dashed var(--pink);border-radius:18px;padding:16px;font-size:15px;line-height:1.8;white-space:pre-wrap;color:var(--ink);min-height:60px;}
+  .count{text-align:right;font-size:11px;color:var(--ink-soft);margin-top:6px;}
+  .count.over{color:#ff3b6b;font-weight:700;}
+  .tree-note{font-size:11px;color:#4a6b85;background:rgba(188,227,255,.3);border-radius:12px;padding:9px 12px;margin-top:10px;line-height:1.6;}
+  .btn-row{display:flex;gap:10px;margin-top:14px;}
+  .btn{flex:1;padding:14px;border:none;border-radius:16px;font-size:14px;cursor:pointer;font-family:'Mochiy Pop One',sans-serif;transition:.12s;}
+  .btn-x{background:#1a1a1a;color:#fff;box-shadow:0 5px 0 #000;}
+  .btn-x:active{transform:translateY(3px);box-shadow:0 2px 0 #000;}
+  .btn-copy{background:var(--mint);color:#2a7a5a;box-shadow:0 5px 0 #6fce9f;}
+  .btn-copy:active{transform:translateY(3px);box-shadow:0 2px 0 #6fce9f;}
+  .btn-re{background:#fff;color:var(--ink-soft);box-shadow:0 5px 0 #e8d8e2;border:2px solid #f0e0ea;}
+  .btn-re:active{transform:translateY(3px);box-shadow:0 2px 0 #e8d8e2;}
+  .btn-done{background:var(--pink);color:#fff;box-shadow:0 5px 0 #e0539a;}
+  .btn-done:active{transform:translateY(3px);box-shadow:0 2px 0 #e0539a;}
+  .rule-note{background:rgba(168,230,207,.3);border-radius:14px;padding:10px 13px;font-size:11.5px;color:#3d7a5e;margin-top:8px;line-height:1.6;}
+  .history{margin-top:6px;}
+  .history h3{font-family:'Mochiy Pop One';font-size:13px;color:var(--lav);text-align:center;margin:18px 0 10px;}
+  .hist-item{background:rgba(255,255,255,.65);border-radius:14px;padding:10px 13px;margin-bottom:8px;font-size:12px;line-height:1.6;border:2px solid #fff;position:relative;}
+  .hist-item .hnum{font-family:'Mochiy Pop One';color:var(--pink-deep);font-size:12px;}
+  .hist-item .hdel{position:absolute;top:8px;right:10px;cursor:pointer;color:#ddc;font-size:14px;}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(100px);background:var(--pink-deep);color:#fff;padding:13px 26px;border-radius:30px;font-family:'Mochiy Pop One';font-size:14px;box-shadow:0 8px 20px rgba(255,111,165,.5);transition:.4s cubic-bezier(.3,1.4,.5,1);z-index:99;opacity:0;}
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-soft);margin-top:24px;font-family:'Yusei Magic';line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crown">👑</div>
+  <h1>現場メーカー☆</h1>
+  <div class="sub">＼ 喋るだけで投稿できあがり ／ 原本はこっち、Xには出力</div>
+
+  <div class="logbar">
+    <span class="lbl">現場ログ</span>
+    <button id="numMinus">−</button>
+    <span class="num">#<span id="logNum">1</span></span>
+    <button id="numPlus">＋</button>
+  </div>
+
+  <div class="card">
+    <label>① どんな現場だった？ <span class="hint">パラッとでOK</span></label>
+    <textarea id="memo" placeholder="例）居酒屋でホール！店長おもろくて、まかないの唐揚げ最高やった☺️ お客さんともめっちゃ喋れた"></textarea>
+
+    <label>② お店の名前 <span class="hint">許可とれた時だけ</span></label>
+    <input id="shop" type="text" placeholder="（空欄なら店名フセでつくるよ）">
+
+    <label>③ エリア <span class="hint">任意</span></label>
+    <input id="area" type="text" placeholder="例）京橋・城東・大阪">
+
+    <label>④ 店名はどうする？</label>
+    <div class="toggle-row">
+      <div class="tg on" data-name="hide">🙈 店名フセる</div>
+      <div class="tg" data-name="show">📣 店名出す（許可済）</div>
+    </div>
+    <div class="rule-note" id="ruleNote">🍀 店名フセモード：規約セーフ。まずはコレで実績つくろ。店長に許可もらえたら切り替えてね。</div>
+
+    <label>⑤ トーンえらぶ</label>
+    <div class="modes">
+      <div class="mode on" data-mode="genki"><span class="emo">🌈</span>げんき<br>ふつう</div>
+      <div class="mode" data-mode="thanks"><span class="emo">🙏</span>お礼<br>しっとり</div>
+      <div class="mode" data-mode="event"><span class="emo">📣</span>会いに来て<br>告知</div>
+      <div class="mode" data-mode="chill"><span class="emo">🍵</span>ゆるく<br>ぼやき</div>
+    </div>
+
+    <label class="chk"><input type="checkbox" id="treeChk" checked><span>🧵 ツリー用に「現場ログ #番号」を頭につける（時系列で1〜100読める）</span></label>
+
+    <button class="gen" id="genBtn">✨ 投稿文をつくる ✨</button>
+  </div>
+
+  <div class="card out-card" id="outCard">
+    <div class="out-head"><span>🎀</span><span class="ttl">できたよ！</span><span>🎀</span></div>
+    <div class="post" id="post"></div>
+    <div class="count" id="count"></div>
+    <div class="tree-note" id="treeNote">🧵 これを投稿するとき、前回の現場ログ投稿に「返信」でぶら下げるとツリーが繋がるよ。1本目は普通に投稿でOK。</div>
+    <div class="btn-row">
+      <button class="btn btn-x" id="xBtn">𝕏 で投稿</button>
+      <button class="btn btn-copy" id="copyBtn">📋 コピー</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-re" id="reBtn">🎲 別パターン</button>
+      <button class="btn btn-done" id="doneBtn">✅ 投稿した！記録</button>
+    </div>
+  </div>
+
+  <div class="history" id="historyWrap" style="display:none">
+    <h3>🗂 これまでの現場ログ</h3>
+    <div id="histList"></div>
+  </div>
+
+  <div class="foot">マカロンでカーニバル🍬<br>「あなたは大丈夫」思想実験中<br>— 愛野あかり♡ —</div>
+</div>
+
+<div class="toast" id="toast">コピーしたよ！💕</div>
+
+<script>
+const LS_NUM='akari_genba_num', LS_HIST='akari_genba_hist';
+let nameMode='hide', tone='genki', lastVariant=-1, currentText='';
+
+// 番号 localStorage 永続
+let logNum = parseInt(localStorage.getItem(LS_NUM)||'1',10);
+function paintNum(){document.getElementById('logNum').textContent=logNum;}
+paintNum();
+function saveNum(){localStorage.setItem(LS_NUM,String(logNum));}
+document.getElementById('numPlus').onclick=()=>{logNum++;paintNum();saveNum();};
+document.getElementById('numMinus').onclick=()=>{if(logNum>1){logNum--;paintNum();saveNum();}};
+
+// 履歴
+function loadHist(){try{return JSON.parse(localStorage.getItem(LS_HIST)||'[]');}catch{return[];}}
+function paintHist(){
+  const h=loadHist();const wrap=document.getElementById('historyWrap');const list=document.getElementById('histList');
+  if(!h.length){wrap.style.display='none';return;}
+  wrap.style.display='block';list.innerHTML='';
+  h.slice().reverse().forEach((it,ri)=>{
+    const realIdx=h.length-1-ri;
+    const d=document.createElement('div');d.className='hist-item';
+    d.innerHTML=`<span class="hnum">#${it.num}</span> <span style="color:#bbab">${it.date}</span><span class="hdel" data-i="${realIdx}">✕</span><br>${it.text.replace(/</g,'&lt;').slice(0,80)}${it.text.length>80?'…':''}`;
+    list.appendChild(d);
+  });
+  list.querySelectorAll('.hdel').forEach(b=>b.onclick=()=>{
+    const arr=loadHist();arr.splice(parseInt(b.dataset.i,10),1);
+    localStorage.setItem(LS_HIST,JSON.stringify(arr));paintHist();
+  });
+}
+paintHist();
+
+// トグル
+document.querySelectorAll('.tg').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tg').forEach(x=>x.classList.remove('on'));
+  t.classList.add('on');nameMode=t.dataset.name;
+  document.getElementById('ruleNote').innerHTML = nameMode==='hide'
+    ? '🍀 店名フセモード：規約セーフ。まずはコレで実績つくろ。店長に許可もらえたら切り替えてね。'
+    : '✅ 店名出すモード：お店の許可がとれてる時だけ。タグ付けでお店の宣伝にもなるよ◎';
+});
+document.querySelectorAll('.mode').forEach(m=>m.onclick=()=>{
+  document.querySelectorAll('.mode').forEach(x=>x.classList.remove('on'));
+  m.classList.add('on');tone=m.dataset.mode;
+});
+
+const emo=['☺️','🌈','🍻','✨','💕','🎀','🍬','🥰','🙌','🌸'];
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+
+function build(){
+  const memo=document.getElementById('memo').value.trim();
+  const shop=document.getElementById('shop').value.trim();
+  const area=document.getElementById('area').value.trim();
+  const tree=document.getElementById('treeChk').checked;
+  const showName=nameMode==='show'&&shop;
+  const place=showName?`【${shop}】さん`:'とあるお店';
+  const tag=showName&&area?`\n#${area}グルメ #愛野あかり`:'\n#タイミー #愛野あかり';
+  const m=memo||'現場たのしかった〜！';
+  const head=tree?`現場ログ #${logNum}\n`:'';
+
+  const sets={
+    genki:[
+      `${head}今日は${showName?place:'タイミーで'+place}でお手伝い🍻\n${m}\nやっぱ現場めっちゃ楽しい〜！${pick(emo)}\n「あかり来てるやん」って会える場所、地道に増やしてくね🌈${tag}`,
+      `${head}現場いってきた！${showName?'＠'+place:''}\n${m}\n人と喋れるの幸せすぎる☺️ こういうの好きやねん私${tag}`,
+      `${head}${showName?place+'で':'今日も現場で'}わちゃわちゃ働いてきた🙌\n${m}\nまた会いに来てくれたら泣いて喜ぶ💕${tag}`
+    ],
+    thanks:[
+      `${head}今日は${place}でお世話になりました🙏\n${m}\nこういう出会いがほんま宝物。ありがとうございました☺️${tag}`,
+      `${head}${showName?place:'今日の現場'}、ほんまに良いお店やった…\n${m}\nまた絶対来たい。気になる人ぜひ行ってみて〜${tag}`,
+      `${head}お手伝いさせてもらった${place}に感謝🌸\n${m}\n一期一会、大事にしてくな${tag}`
+    ],
+    event:[
+      `${head}📣お知らせ📣\n${showName?place+'に愛野あかりが立つよ！':'近々どこかの現場に立ちます！'}\n${m}\n会いに来てくれたら全力でおもてなしする🍻 待ってる💕${tag}`,
+      `${head}✨会いに来てね✨\n${showName?place+'にいます':'現場にいます'}！\n${m}\nリアルで喋れるの楽しみすぎる🥰${tag}`,
+      `${head}${showName?place+'で':'現場で'}待ってるよ〜📣\n${m}\n「Xみたで」って言ってくれたら倍うれしい🙌${tag}`
+    ],
+    chill:[
+      `${head}今日の現場メモ🍵\n${m}\nなんやかんや現場すき。ゆるくやってこ〜${tag}`,
+      `${head}はたらいてきた〜${showName?'（'+place+'）':''}\n${m}\nこういう日々もわるくないよね☺️${tag}`,
+      `${head}ぼやき：${m}\nまあでも楽しかったから良し🌈${showName?'\n'+place+'ありがとう':''}${tag}`
+    ]
+  };
+  const arr=sets[tone];
+  let i=Math.floor(Math.random()*arr.length);
+  if(arr.length>1){while(i===lastVariant)i=Math.floor(Math.random()*arr.length);}
+  lastVariant=i;return arr[i];
+}
+
+function render(){
+  currentText=build();
+  document.getElementById('post').textContent=currentText;
+  const len=[...currentText].length;
+  const c=document.getElementById('count');
+  c.textContent=`${len} / 140文字`;c.className='count'+(len>140?' over':'');
+  document.getElementById('treeNote').style.display=document.getElementById('treeChk').checked?'block':'none';
+  document.getElementById('outCard').classList.add('show');
+  document.getElementById('outCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.getElementById('genBtn').onclick=render;
+document.getElementById('reBtn').onclick=render;
+
+document.getElementById('xBtn').onclick=()=>{
+  window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(currentText),'_blank');
+};
+document.getElementById('copyBtn').onclick=()=>{
+  navigator.clipboard.writeText(currentText).then(()=>{
+    const t=document.getElementById('toast');t.textContent='コピーしたよ！💕';
+    t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600);
+  });
+};
+document.getElementById('doneBtn').onclick=()=>{
+  const arr=loadHist();
+  const now=new Date();
+  const date=`${now.getMonth()+1}/${now.getDate()}`;
+  arr.push({num:logNum,date,text:currentText});
+  localStorage.setItem(LS_HIST,JSON.stringify(arr));
+  logNum++;paintNum();saveNum();paintHist();
+  const t=document.getElementById('toast');t.textContent='記録したよ！次は #'+logNum+' 🎀';
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1900);
+  document.getElementById('memo').value='';document.getElementById('shop').value='';
+  document.getElementById('outCard').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+};
+</script>
+</body>
+</html>
