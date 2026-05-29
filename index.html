@@ -136,6 +136,7 @@
 
   <div class="card out-card" id="outCard">
     <div class="out-head"><span>🎀</span><span class="ttl">できたよ！</span><span>🎀</span></div>
+    <div style="text-align:center;margin-bottom:8px"><span id="providerBadge" style="display:none;font-size:11px;background:rgba(201,182,255,.25);border-radius:20px;padding:3px 10px;color:#9d7f8e;font-family:'Yusei Magic',sans-serif"></span></div>
     <div class="post" id="post"></div>
     <div class="count" id="count"></div>
     <div class="tree-note" id="treeNote">🧵 これを投稿するとき、前回の現場ログ投稿に「返信」でぶら下げるとツリーが繋がるよ。1本目は普通に投稿でOK。</div>
@@ -245,15 +246,49 @@ function build(){
   lastVariant=i;return arr[i];
 }
 
-function render(){
-  currentText=build();
-  document.getElementById('post').textContent=currentText;
-  const len=[...currentText].length;
+function showPost(text, provider){
+  currentText=text;
+  document.getElementById('post').textContent=text;
+  const len=[...text].length;
   const c=document.getElementById('count');
   c.textContent=`${len} / 140文字`;c.className='count'+(len>140?' over':'');
   document.getElementById('treeNote').style.display=document.getElementById('treeChk').checked?'block':'none';
+  // どのproviderで生成したか表示
+  const badge=document.getElementById('providerBadge');
+  if(badge){
+    badge.textContent = provider==='local-template' ? '📝 テンプレ' : `✨ AI: ${provider}`;
+    badge.style.display='inline-block';
+  }
   document.getElementById('outCard').classList.add('show');
   document.getElementById('outCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+async function render(){
+  const btn=document.getElementById('genBtn');
+  btn.textContent='⏳ 生成中...';btn.disabled=true;
+  const params={
+    memo:document.getElementById('memo').value.trim(),
+    shop:document.getElementById('shop').value.trim(),
+    area:document.getElementById('area').value.trim(),
+    nameMode,tone,logNum,
+    treeEnabled:document.getElementById('treeChk').checked
+  };
+  try{
+    const r=await fetch('/api/generate-post',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(params)
+    });
+    if(r.ok){
+      const d=await r.json();
+      showPost(d.text, d.provider);
+    } else { throw new Error('api error'); }
+  } catch(e){
+    // ネットワーク失敗 or APIエラー → ローカルテンプレで即時フォールバック
+    showPost(build(),'local-template');
+  } finally {
+    btn.textContent='✨ 投稿文をつくる ✨';btn.disabled=false;
+  }
 }
 document.getElementById('genBtn').onclick=render;
 document.getElementById('reBtn').onclick=render;
