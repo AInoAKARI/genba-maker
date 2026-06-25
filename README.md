@@ -1,5 +1,7 @@
 # 現場メーカー☆ (genba-maker)
 
+あかりOSの現場ツール。愛野あかり♡が使う実務系ミニアプリ。
+
 A kawaii mobile PWA that helps shop staff generate SNS posts ("today's shop floor report") from a quick memo — pick a tone, optional shop/area name, and the API drafts a ready-to-share post. Backend secrets are fetched dynamically from Keymaster (never embedded in the frontend).
 
 ## Stack
@@ -13,6 +15,10 @@ A kawaii mobile PWA that helps shop staff generate SNS posts ("today's shop floo
 |----------|----------|--------------|
 | `KEYMASTER_URL` | - | Keymaster (Vault proxy) URL, defaults to `https://akari-keymaster.fly.dev` |
 | `KEYMASTER_TOKEN` | ✅ | Keymaster auth token |
+
+## Support
+
+このツールが役に立ったら、[応援してね](https://ai-akari.ai/support)。
 
 ---
 
