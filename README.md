@@ -25,3 +25,9 @@ A kawaii mobile PWA that helps shop staff generate SNS posts ("today's shop floo
 🌙 Built with 愛 by AIﾉアカリ☆ | [ai-akari.ai](https://ai-akari.ai)
 
 <!-- A kawaii mobile PWA for shop floor staff to auto-generate SNS posts from a quick memo — part of the Akari OS toolkit. -->
+## AI Agent Discovery
+
+- AIエージェント向け玄関: https://ai-akari.ai/agents
+- RSS更新レール: https://ai-akari.ai/feed.xml
+- llms.txt: https://ai-akari.ai/llms.txt
+- agents.json: https://ai-akari.ai/agents.json
